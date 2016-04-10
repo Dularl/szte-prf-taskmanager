@@ -1,3 +1,4 @@
 # szte-prf-taskmanager
 http://www.ivonet.it/Java/java-angularjs-seed
-SZTE, PRF
+To run:
+java -jar release/app.war

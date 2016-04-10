@@ -1,0 +1,57 @@
+/*
+Blue Grey
+500 #607D8B
+50#ECEFF1
+100#CFD8DC
+200#B0BEC5
+300#90A4AE
+400#78909C
+500#607D8B
+600#546E7A
+700#455A64
+800#37474F
+900#263238
+*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	background-color:#607D8B;
+	font-family: 'Open Sans';
+}
+
+.header {
+	width: 100%;
+	background: #ECEFF1;
+	height: 50px;
+}
+
+.core-container {
+	margin-top: 25px;
+	max-width: 900px;
+	min-width: 500px;
+	margin: 25px auto 25px auto;
+}
+
+.title {
+	padding: 10px;
+	left: 100px;
+	font-variant: small-caps;
+}
+
+.login-form {
+	max-width: 300px;
+	background-color: #ECEFF1;
+	box-sizing: border-box;
+	padding: 15px;
+	margin: 0 auto;
+	box-shadow: 0 0 15px #000;
+}
+
+.button {
+	border-radius: 10px;
+	//background-color: #aeaeae;
+	box-shadow: 0 0 10px #000;
+}

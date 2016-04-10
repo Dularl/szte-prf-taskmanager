@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Task Manager</title>
+
+<link rel="stylesheet" href="">
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<link rel="stylesheet"
+	href="//ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+<!--  Task Manager  -->
+<link rel="stylesheet" href="core/taskmanager.css">
+<script src="core/taskmanager.module.js"></script>
+<!--  login module --> 
+<script src="login/login.module.js"></script>
+<script src="login/login.ctrl.js"></script>
+</head>
+<body ng-app="taskManager">
+
+	<div class="header">
+		<h1 class="title">Task Manager</h1>
+	</div>
+	<div md-content layout-padding class="core-container">
+
+		<form name="loginForm" class="login-form" ng-controller="loginCtrl as loginCtrl">
+		<h2>Login form</h2>
+			<md-input-container> <label>E-mail</label> <input
+				required ng-model="loginCtrl.email" type="email" name="email"> </md-input-container>
+			<md-input-container> <label>Password</label> <input
+				required type="password" name="password" ng-model="loginCtrl.password"> </md-input-container>
+			<div layout="row" layout-align="end center"><md-button ng-click="loginCtrl.login();" class="button">Login</md-button></div>		
+		</form>
+	</div>
+</body>
+</html>

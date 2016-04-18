@@ -35,6 +35,10 @@ html, body {
 	margin: 25px auto 25px auto;
 }
 
+.content {
+	min-width: 800px;
+	background-color: #546E7A;
+}
 .title {
 	padding: 10px;
 	left: 100px;

@@ -1,5 +1,7 @@
 package hu.szte.prf.taskmanager;
 
+import org.json.JSONObject;
+
 public class Customer {
 	private long id;
 	private String firstName, lastName;
@@ -10,10 +12,11 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	@Override
+/*	@Override
 	public String toString() {
-		return String.format("Customer[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
-	}
+		JSONObject jsonObject = new JSONObject(this);
+		return jsonObject.toString();
+	}*/
 
 	public long getId() {
 		return id;
@@ -39,5 +42,14 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	// getters & setters omitted for brevity
+	@Override
+	public boolean equals(Object obj) {
+		return this.id == ((Customer) obj).getId();
+	}
+	
+	@Override
+	public int hashCode() {	
+		return super.hashCode();
+	}
+
 }

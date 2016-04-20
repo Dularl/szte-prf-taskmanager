@@ -22,25 +22,24 @@
 <!--  Task Manager  -->
 <link rel="stylesheet" href="core/taskmanager.css">
 <script src="core/taskmanager.module.js"></script>
-<!--  login module --> 
+<script src="js/angular-ui-router.min.js"></script>
+<!--  login module -->
 <script src="login/login.module.js"></script>
 <script src="login/login.ctrl.js"></script>
+
+<!-- user module -->
+<!--  login module -->
+<script src="user/user.module.js"></script>
+<script src="user/user.ctrl.js"></script>
 </head>
 <body ng-app="taskManager">
-
 	<div class="header">
 		<h1 class="title">Task Manager</h1>
 	</div>
-	<div md-content layout-padding class="core-container">
+	<div  ui-view md-content layout-padding class="core-container">
 
-		<form name="loginForm" class="login-form" ng-controller="loginCtrl as loginCtrl">
-		<h2>Login form</h2>
-			<md-input-container> <label>E-mail</label> <input
-				required ng-model="loginCtrl.email" type="email" name="email"> </md-input-container>
-			<md-input-container> <label>Password</label> <input
-				required type="password" name="password" ng-model="loginCtrl.password"> </md-input-container>
-			<div layout="row" layout-align="end center"><md-button ng-click="loginCtrl.login();" class="button">Login</md-button></div>		
-		</form>
+		
+
 	</div>
 </body>
 </html>

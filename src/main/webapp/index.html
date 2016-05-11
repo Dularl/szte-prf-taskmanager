@@ -1,45 +1,66 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>Task Manager</title>
+	<meta charset="utf-8">
+	<title>Task Manager</title>
 
-<link rel="stylesheet" href="">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+	<link rel="stylesheet" href="">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
 
-<!-- Angular Material Library -->
-<link rel="stylesheet"
-	href="//ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
-<!--  Task Manager  -->
-<link rel="stylesheet" href="core/taskmanager.css">
-<script src="core/taskmanager.module.js"></script>
-<script src="js/angular-ui-router.min.js"></script>
-<!--  login module -->
-<script src="login/login.module.js"></script>
-<script src="login/login.ctrl.js"></script>
+	<!-- Angular Material Library -->
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+	<!--  Task Manager  -->
+	<link rel="stylesheet" href="core/taskmanager.css">
+	<script src="core/taskmanager.module.js"></script>
+	<script src="js/angular-ui-router.min.js"></script>
+	<!--  login module -->
+	<script src="login/login.module.js"></script>
+	<script src="login/login.ctrl.js"></script>
+	<!--projects-->
+	<script src="projects/projects.module.js"></script>
+	<script src="projects/projects.ctrl.js"></script>
+	<!-- user module -->
+	<!--  login module -->
 
-<!-- user module -->
-<!--  login module -->
-<script src="user/user.module.js"></script>
-<script src="user/user.ctrl.js"></script>
 </head>
+
 <body ng-app="taskManager">
-	<div class="header">
+	<div class="header" layout="row">
 		<h1 class="title">Task Manager</h1>
 	</div>
-	<div  ui-view md-content layout-padding class="core-container">
+	<md-toolbar class="md-menu-toolbar" layout="row" layout-align="center center">
+		<md-menu-bar>
 
-		
+			<md-button>
+				Users
+			</md-button>
+
+			<md-button>
+				Projects
+			</md-button>
+
+			<md-button>
+				Reports
+			</md-button>
+
+			<md-button>
+				Resources
+			</md-button>
+
+			<md-button>
+				About
+			</md-button>
+
+		</md-menu-bar>
+	</md-toolbar>
+	<div ui-view md-content layout-padding class="core-container">
 
 	</div>
 </body>
+
 </html>

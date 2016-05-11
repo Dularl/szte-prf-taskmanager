@@ -27,7 +27,9 @@ html, body {
 	background: #ECEFF1;
 	height: 50px;
 }
-
+#menu-bar {
+	background: #546E7A;
+}
 .core-container {
 	margin-top: 25px;
 	max-width: 900px;

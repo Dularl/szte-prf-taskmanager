@@ -7,20 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import hu.szte.prf.taskmanager.TaskManager;
-import hu.szte.prf.taskmanager.controller.restapi.UserController;
 import hu.szte.prf.taskmanager.dao.UserDao;
 import hu.szte.prf.taskmanager.entity.User;
 
 @Transactional
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	private static final Logger log = Logger.getLogger(UserService.class.getName());
 
 	@Autowired
 	private UserDao userDao;
-	
+
 	@Override
 	public User find(Long id) {
 		return userDao.read(id);
@@ -37,5 +35,9 @@ public class UserServiceImpl implements UserService {
 		userDao.create(user);
 	}
 
-	
+	@Override
+	public void update(User user) {
+		userDao.update(user);
+	}
+
 }

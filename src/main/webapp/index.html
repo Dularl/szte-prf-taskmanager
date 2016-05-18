@@ -17,26 +17,41 @@
 	<!--  Task Manager  -->
 	<link rel="stylesheet" href="core/taskmanager.css">
 	<script src="core/taskmanager.module.js"></script>
+	<script src="core/menu.module.js"></script>
+	<script src="core/menu.ctrl.js"></script>
+
 	<script src="js/angular-ui-router.min.js"></script>
-	<!--  login module -->
-	<script src="login/login.module.js"></script>
-	<script src="login/login.ctrl.js"></script>
-	<!--projects-->
-	<script src="projects/projects.module.js"></script>
-	<script src="projects/projects.ctrl.js"></script>
-	<!-- user module -->
-	<!--  login module -->
+	<scrip src="js/angular-ui-router.js">
+		<!-- user module -->
+		<script src="user/user.module.js"></script>
+		<script src="user/user.ctrl.js"></script>
+		<script src="user/user.view.html"></script>
+
+		<!-- resource module -->
+		<script src="resources/resource.module.js"></script>
+		<script src="resources/resource.ctrl.js"></script>
+		<script src="resources/resource.view.html"></script>
+
+		<!--  login module -->
+		<script src="login/login.module.js"></script>
+		<script src="login/login.ctrl.js"></script>
+		<!--projects-->
+		<script src="projects/projects.module.js"></script>
+		<script src="projects/projects.ctrl.js"></script>
+
+		<script src="login/login.module.js"></script>
+		<script src="login/login.ctrl.js"></script>
+		<script src="login/login.view.html"></script>
 
 </head>
 
 <body ng-app="taskManager">
-	<div class="header" layout="row">
-		<h1 class="title">Task Manager</h1>
+	<!--		<h1 class="title">Task Manager</h1>
 	</div>
-	<md-toolbar class="md-menu-toolbar" layout="row" layout-align="center center">
+<md-toolbar class="md-menu-toolbar" layout="row" layout-align="center center" ng-controller="menuCtrl as menuCtrl">
 		<md-menu-bar>
 
-			<md-button>
+			<md-button ng-click="menuCtrl.goToUsersPage()">
 				Users
 			</md-button>
 
@@ -57,10 +72,40 @@
 			</md-button>
 
 		</md-menu-bar>
-	</md-toolbar>
-	<div ui-view md-content layout-padding class="core-container">
+	</md-toolbar>-->
+	<h1>Taskmanager</h1>
+	<ul layout="row" class="nav" ng-controller="menuCtrl as menuCtrl">
+		<li>Users
+			<ul>
+				<li><md-button href="" ng-click="menuCtrl.goToUsersPage()">User CUD</button></li>
+				<li><md-button href="">Membership-user editor</<md-button></li>
+			</ul>
+		</li>
+	  <li>Project
+	    <ul>
+	      <li><md-button href="">Project CUD</<md-button></li>
+	      <li><md-button href="">Task CUD</<md-button></li>
+	      <li><a href="#">TaskType CUD</a></li>
+	      <li><a href="#">MemberShip CUD</a></li>
+				<li><a href="#">Resource request CUD</a></li>
+	    </ul>
+	  </li>
+		<li>Resources
+			<ul>
+				<li><a href="" ng-click="menuCtrl.goToResourcesPage()">Resource CUD</a></li>
+				<li><a href="#">Resource request editor</a></li>
+			</ul>
+		</li>
+		<li>Reports
+			<ul>
+				<li><a href="#">User resources</a></li>
+				<li><a href="#">User tasks(filter)</a></li>
+			</ul>
+		</li>
+		<li><a href="#">About</a></li>
+	</ul>
 
-	</div>
+	<div ui-view md-content layout-padding class="prf-content">
+
 </body>
-
 </html>

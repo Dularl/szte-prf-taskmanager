@@ -2,7 +2,7 @@ angular
 		.module(
 				"taskManager",
 				[ "ngMaterial", "ngAnimate", "ngMessages", "ui.router",
-						"loginModule" ])
+						"loginModule","userModule","menuModule","resourceModule" ])
 		.config(
 				function($mdThemingProvider, $stateProvider, $urlRouterProvider) {
 					$mdThemingProvider.theme('altTheme').primaryPalette(
@@ -22,6 +22,11 @@ angular
 					$stateProvider.state('home', {
 						url : "/projects",
 						templateUrl : "./projects/projects.view.html"
+					});
+
+					$stateProvider.state('resources', {
+						url : "/resources",
+						templateUrl : "./resources/resource.view.html"
 					});
 
 					$urlRouterProvider.otherwise("/");

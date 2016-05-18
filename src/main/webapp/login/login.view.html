@@ -1,0 +1,14 @@
+<form name="loginForm" class="login-form"
+	ng-controller="loginCtrl as loginCtrl">
+	<h2>Login form</h2>
+	<md-input-container> <label>E-mail</label> <input
+		required ng-model="loginCtrl.email" type="email" name="email">
+	</md-input-container>
+	<md-input-container> <label>Password</label> <input
+		required type="password" name="password" ng-model="loginCtrl.password">
+	</md-input-container>
+	<div layout="row" layout-align="end center">
+		<md-button ng-click="loginCtrl.login();" class="button">Login</md-button>
+	</div>
+	<div ng-repeat="user in loginCtrl.users">{{user.firstName}}</div>
+</form>

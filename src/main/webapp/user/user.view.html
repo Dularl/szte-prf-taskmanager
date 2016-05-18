@@ -1,0 +1,19 @@
+<div ng-controller="userCtrl as userCtrl" class="content">
+	<div class="user-widget" ng-repeat="user in userCtrl.users">
+		<img src="user/avatar.png" class="avatar-image" alt="image caption">
+		<ng-form name="userForm">
+			<label>id:{{user.id}}</label>
+			<md-input-container>
+				<label>Firstname</label>
+				<input ng-model="user.firstName" class="user-name" type="text" value="{{user.firstName}}"></input>
+			</md-input-container>
+			<md-input-container>
+				<label>Lastname</label>
+				<input ng-model="user.lastName"class="user-name" type="text" value="{{user.lastName}}"></input>
+			</md-input-container>
+			<md-button ng-click="userCtrl.updateUser(user)">Edit</md-button>
+			<md-button  ng-click="userCtrl.deleteUser(user)">Delete</md-button>
+		</ng-form>
+
+	</div>
+</div>

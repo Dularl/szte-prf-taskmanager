@@ -15,6 +15,13 @@
             $location.path("resources");
         }
 
+        ctrl.navigate = function(path) {
+          console.log("LF");
+            $location.path(path);
+        }
+
+    
+
     }
 
     angular.module("menuModule").controller('menuCtrl', ["$location", menuCtrl]);

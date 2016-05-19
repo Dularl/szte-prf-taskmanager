@@ -36,7 +36,7 @@ public class TaskTypeController {
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
 	public void update(@RequestBody final TaskType taskType) {
-		taskTypeService.save(taskType);
+		taskTypeService.update(taskType);
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)

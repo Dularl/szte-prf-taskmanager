@@ -36,7 +36,7 @@ public class ProjectController {
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
 	public void update(@RequestBody final Project project) {
-		projectService.save(project);
+		projectService.update(project);
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)

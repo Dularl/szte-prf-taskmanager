@@ -36,7 +36,7 @@ public class TaskController {
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
 	public void update(@RequestBody final Task task) {
-		taskService.save(task);
+		taskService.update(task);
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)

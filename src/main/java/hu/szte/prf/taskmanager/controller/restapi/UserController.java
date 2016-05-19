@@ -41,7 +41,7 @@ public class UserController {
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
 	public void update(@RequestBody final User user) {
-		userService.save(user);
+		userService.update(user);
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)

@@ -1,19 +1,35 @@
-<div ng-controller="userCtrl as userCtrl" class="content">
-	<div class="user-widget" ng-repeat="user in userCtrl.users">
-		<img src="user/avatar.png" class="avatar-image" alt="image caption">
-		<ng-form name="userForm">
-			<label>id:{{user.id}}</label>
-			<md-input-container>
-				<label>Firstname</label>
-				<input ng-model="user.firstName" class="user-name" type="text" value="{{user.firstName}}"></input>
-			</md-input-container>
-			<md-input-container>
-				<label>Lastname</label>
-				<input ng-model="user.lastName"class="user-name" type="text" value="{{user.lastName}}"></input>
-			</md-input-container>
-			<md-button ng-click="userCtrl.updateUser(user)">Edit</md-button>
-			<md-button  ng-click="userCtrl.deleteUser(user)">Delete</md-button>
-		</ng-form>
+<div ng-controller="userCtrl as userCtrl" class="content" layout="row">
+	<div layout="column" class="add-user-form">
+		<h3>Add user form</h3>
+		<md-input-container>
+			<label>Name</label>
+			<input ng-model="userCtrl.newUser.name" class="user-name" type="text"></input>
+		</md-input-container>
+		<md-input-container>
+			<label>Email</label>
+			<input ng-model="userCtrl.newUser.email" class="user-name" type="text"></input>
+		</md-input-container>
 
+		<md-select class="role-selector" ng-model="userCtrl.selectedRole.name" placeholder="Select a role">
+			<md-option ng-value="role.name" ng-repeat="role in userCtrl.roles">{{ role.name }}</md-option>
+		</md-select>
+		<div layout="row">
+			<md-button ng-click="userCtrl.addUser()" class="md-primary md-raised">Add</md-button>
+		</div>
 	</div>
+
+	<div class="user-list">
+			<h3>User list</h3>
+		<md-list>
+			<md-list-item class="md-2-line" ng-repeat="user in userCtrl.users">
+				<div class="md-list-item-text">
+					<h3>{{user.name}} ({{user.role}} - {{user.id}})</h3>
+					<p><input ng-model="user.email" type="text" value="{{user.email}}"></input></p>
+					<md-button ng-click="userCtrl.updateUser(user)" class="md-primary md-raised">Edit</md-button>
+					<md-button ng-click="userCtrl.deleteUser(user)" class="md-warn md-raised">Delete</md-button>
+				</div>
+			</md-list-item>
+		</md-list>
+	</div>
+
 </div>

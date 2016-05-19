@@ -12,8 +12,8 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
 
 	<!-- Angular Material Library -->
-	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+	<link rel="stylesheet" href="https://rawgit.com/angular/bower-material/master/angular-material.css">
 	<!--  Task Manager  -->
 	<link rel="stylesheet" href="core/taskmanager.css">
 	<script src="core/taskmanager.module.js"></script>
@@ -78,12 +78,12 @@
 		<li>Users
 			<ul>
 				<li><md-button href="" ng-click="menuCtrl.goToUsersPage()">User CUD</button></li>
-				<li><md-button href="">Membership-user editor</<md-button></li>
+				<li><md-button href=""  ng-click="menuCtrl.navigate('/membership-user')">Membership-user editor</<md-button></li>
 			</ul>
 		</li>
 	  <li>Project
 	    <ul>
-	      <li><md-button href="">Project CUD</<md-button></li>
+	      <li><md-button href=""  ng-click="menuCtrl.navigate('/projects')">Project CUD</<md-button></li>
 	      <li><md-button href="">Task CUD</<md-button></li>
 	      <li><a href="#">TaskType CUD</a></li>
 	      <li><a href="#">MemberShip CUD</a></li>

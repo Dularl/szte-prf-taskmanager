@@ -4,14 +4,25 @@
     var userCtrl = function($http) {
         console.log("user module initialized");
         var ctrl = this;
-
+        ctrl.selectedRole = {};
         console.log(ctrl);
-
+        ctrl.roles = [{
+            "name": "MANAGER"
+        }, {
+            "name": "EMPLOYEE"
+        }, {
+            "name": "ADMIN"
+        }];
+        ctrl.newUser = {
+            name: "",
+            email: "",
+            role: ""
+        };
         ctrl.getUserList = function() {
             // Simple GET request example:
             $http({
                 method: 'GET',
-                url: '/users/getUsers'
+                url: '/rest/users'
             }).then(function successCallback(response) {
                 console.log("success")
                 ctrl.users = null;
@@ -26,14 +37,43 @@
         ctrl.getUserList();
         ctrl.updateUser = function(user) {
             console.log("PUT", user);
-            //call $http.put here
+            var data= {
+                name: user.name,
+                email: user.email,
+                role: user.role
+            }
+            $http.put("/rest/users/" + user.id,data).then(function(res) {
+                ctrl.getUserList();
+            });
         }
         ctrl.deleteUser = function(user) {
             console.log("DELETE", user);
-            $http.delete("/users/" + user.id).then(function(res) {
-							  ctrl.getUserList();
+            $http.delete("/rest/users/" + user.id).then(function(res) {
+                ctrl.getUserList();
             });
         }
+
+        ctrl.addUser = function(user) {
+            // Simple GET request example:
+
+            $http({
+                method: 'POST',
+                url: '/rest/users',
+                data: {
+                    name: ctrl.newUser.name,
+                    email: ctrl.newUser.email,
+                    role: ctrl.selectedRole.name
+                }
+            }).then(function successCallback(response) {
+                console.log(response);
+                  ctrl.getUserList();
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                console.log("error", response);
+            });
+        }
+
         return ctrl;
     }
 

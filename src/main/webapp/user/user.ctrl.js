@@ -4,6 +4,7 @@
     var userCtrl = function($http) {
         console.log("user module initialized");
         var ctrl = this;
+        ctrl.editMode = false;
         ctrl.selectedRole = {};
         console.log(ctrl);
         ctrl.roles = [{
@@ -37,12 +38,15 @@
         ctrl.getUserList();
         ctrl.updateUser = function(user) {
             console.log("PUT", user);
-            var data= {
+            var data = {
                 name: user.name,
                 email: user.email,
-                role: user.role
+                role: user.role,
+                id: user.id,
+                editMode: false
+
             }
-            $http.put("/rest/users/" + user.id,data).then(function(res) {
+            $http.put("/rest/users/" + user.id, data).then(function(res) {
                 ctrl.getUserList();
             });
         }
@@ -66,7 +70,7 @@
                 }
             }).then(function successCallback(response) {
                 console.log(response);
-                  ctrl.getUserList();
+                ctrl.getUserList();
             }, function errorCallback(response) {
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
@@ -74,6 +78,10 @@
             });
         }
 
+        ctrl.toggleEdit = function(user) {
+          user.editMode = !user.editMode;
+          console.log(ctrl.editMode);
+        }
         return ctrl;
     }
 

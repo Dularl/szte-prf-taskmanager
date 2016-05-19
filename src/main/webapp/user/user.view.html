@@ -19,14 +19,22 @@
 	</div>
 
 	<div class="user-list">
-			<h3>User list</h3>
+		<h3>User list</h3>
 		<md-list>
 			<md-list-item class="md-2-line" ng-repeat="user in userCtrl.users">
 				<div class="md-list-item-text">
-					<h3>{{user.name}} ({{user.role}} - {{user.id}})</h3>
-					<p><input ng-model="user.email" type="text" value="{{user.email}}"></input></p>
-					<md-button ng-click="userCtrl.updateUser(user)" class="md-primary md-raised">Edit</md-button>
-					<md-button ng-click="userCtrl.deleteUser(user)" class="md-warn md-raised">Delete</md-button>
+					<h3>	<label ng-if="!user.editMode" ng-model="user.name">{{user.name}}</label> ({{user.role}} - {{user.id}})</h3>
+					<p layout="column">
+
+						<input ng-if="user.editMode" ng-model="user.name" type="text" value="{{user.name}}"></input>
+
+						<input ng-if="user.editMode" ng-model="user.email" type="text" value="{{user.email}}"></input>
+						<label ng-if="!user.editMode" ng-model="user.email">{{user.email}}</label>
+
+					</p>
+					<md-button ng-if="user.editMode" ng-click="userCtrl.updateUser(user)" class="md-primary md-raised  md-cornered">Save</md-button>
+					<md-button ng-click="userCtrl.toggleEdit(user)" class="md-raised  md-cornered">Edit</md-button>
+					<md-button ng-click="userCtrl.deleteUser(user)" class="md-warn md-raised  md-cornered">Delete</md-button>
 				</div>
 			</md-list-item>
 		</md-list>

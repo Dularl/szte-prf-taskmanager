@@ -46,50 +46,31 @@
 </head>
 
 <body ng-app="taskManager">
-	<!--		<h1 class="title">Task Manager</h1>
-	</div>
-<md-toolbar class="md-menu-toolbar" layout="row" layout-align="center center" ng-controller="menuCtrl as menuCtrl">
-		<md-menu-bar>
-
-			<md-button ng-click="menuCtrl.goToUsersPage()">
-				Users
-			</md-button>
-
-			<md-button>
-				Projects
-			</md-button>
-
-			<md-button>
-				Reports
-			</md-button>
-
-			<md-button>
-				Resources
-			</md-button>
-
-			<md-button>
-				About
-			</md-button>
-
-		</md-menu-bar>
-	</md-toolbar>-->
 	<h1>Taskmanager</h1>
 	<ul layout="row" class="nav" ng-controller="menuCtrl as menuCtrl">
 		<li>Users
 			<ul>
-				<li><md-button href="" ng-click="menuCtrl.goToUsersPage()">User CUD</button></li>
-				<li><md-button href=""  ng-click="menuCtrl.navigate('/membership-user')">Membership-user editor</<md-button></li>
+				<li>
+					<md-button href="" ng-click="menuCtrl.goToUsersPage()">User CUD</button>
+				</li>
+				<li>
+					<md-button href="" ng-click="menuCtrl.navigate('/membership-user')">Membership-user editor</<md-button>
+				</li>
 			</ul>
 		</li>
-	  <li>Project
-	    <ul>
-	      <li><md-button href=""  ng-click="menuCtrl.navigate('/projects')">Project CUD</<md-button></li>
-	      <li><md-button href="">Task CUD</<md-button></li>
-	      <li><a href="#">TaskType CUD</a></li>
-	      <li><a href="#">MemberShip CUD</a></li>
+		<li>Project
+			<ul>
+				<li>
+					<md-button href="" ng-click="menuCtrl.navigate('/projects')">Project CUD</<md-button>
+				</li>
+				<li>
+					<md-button href="">Task CUD</<md-button>
+				</li>
+				<li><a href="#">TaskType CUD</a></li>
+				<li><a href="#">MemberShip CUD</a></li>
 				<li><a href="#">Resource request CUD</a></li>
-	    </ul>
-	  </li>
+			</ul>
+		</li>
 		<li>Resources
 			<ul>
 				<li><a href="" ng-click="menuCtrl.goToResourcesPage()">Resource CUD</a></li>
@@ -108,4 +89,5 @@
 	<div ui-view md-content layout-padding class="prf-content">
 
 </body>
+
 </html>

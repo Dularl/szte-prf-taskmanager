@@ -8,40 +8,49 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T, PK> {
-	private Class<T> type;
+	private final Class<T> type;
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public GenericDaoImpl(Class<T> type) {
+
+	public GenericDaoImpl(final Class<T> type) {
 		this.type = type;
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
-	public PK create(T o) {
+	public PK create(final T o) {
 		return (PK) getSession().save(o);
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
-	public T read(PK id) {
+	public T read(final PK id) {
 		return (T) getSession().get(type, id);
 	}
-	
+
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<T> getAll() {
 		return getSession().createCriteria(type).list();
 	}
 
-	public void update(T o) {
+	@Override
+	public void update(final T o) {
 		getSession().update(o);
 	}
 
-	public void delete(T o) {
+	@Override
+	public void delete(final T o) {
 		getSession().delete(o);
 	}
-	
-	private Session getSession() {
+
+	protected Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	
+
+	protected Class<T> getType() {
+		return type;
+	}
+
 }

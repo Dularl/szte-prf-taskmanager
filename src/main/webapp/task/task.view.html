@@ -1,0 +1,87 @@
+<div ng-controller="taskCtrl as taskCtrl" class="content" layout="row">
+    <div layout="column" class="add-task-form user-list">
+        <h3>Add task form</h3>
+        <md-input-container>
+            <label>Name</label>
+            <input ng-model="taskCtrl.newtask.name" class="task-name" type="text"></input>
+        </md-input-container>
+        <md-input-container>
+            <label>Description</label>
+        </md-input-container>
+        <md-input-container>
+        </md-input-container>
+        <textarea rows="4" ng-model="taskCtrl.newTask.description" class="task-name textarea" type="text"></textarea>
+        <md-input-container>
+            <label>Assigne</label>
+            <md-select class="role-selector" ng-model="taskCtrl.selectedUser" placeholder="Select a user">
+                <md-option ng-value="user" ng-repeat="user in taskCtrl.users">{{ user.name }}</md-option>
+            </md-select>
+
+        </md-input-container>
+        <md-select class="role-selector" ng-model="taskCtrl.selectedProject" placeholder="Select a project">
+            <md-option ng-value="project" ng-repeat="project in taskCtrl.projects">{{ project.name }}</md-option>
+        </md-select>
+        <md-select class="role-selector" ng-model="taskCtrl.selectedTaskType" placeholder="Select a TaskType">
+            <md-option ng-value="TaskType" ng-repeat="TaskType in taskCtrl.TaskTypes">{{ TaskType.name }}</md-option>
+        </md-select>
+
+        <div layout="row">
+            <md-button ng-click="taskCtrl.addtask()" class="md-primary md-raised">Add</md-button>
+        </div>
+    </div>
+
+    <div class="user-list">
+        <h3>task list</h3>
+        <md-list>
+            <md-list-item class="md-2-line" ng-repeat="task in taskCtrl.tasks">
+                <div class="md-list-item-text">
+                    <h3>	<b><label ng-if="!task.editMode">{{task.name}} </label>{{task.id}}<b></h3>
+                    <p layout="column">
+
+                        <input ng-if="task.editMode" ng-model="task.name" type="text" value="{{task.name}}"></input>
+
+                        <input class="textarea" ng-if="task.editMode" ng-model="task.description" type="text" value="{{task.description}}"></input>
+                        <p style="max-width: 300px;overflow:hidden;word-break: break-all;" ng-if="!task.editMode" ng-model="task.description">{{task.description}}</p>
+
+                        <label>Assignee: </label>
+                        <input ng-if="task.editMode" ng-model="task.assignee" type="text" value="{{task.assignee}}"></input>
+                        <p style="max-width: 300px;overflow:hidden;word-break: break-all;" ng-if="!task.editMode" ng-model="task.assignee">{{task.assignee.name}}</p>
+
+                        <label>Status: </label>
+                        <input ng-if="task.editMode" ng-model="task.status" type="text" value="{{task.status}}"></input>
+                        <p style="max-width: 300px;overflow:hidden;word-break: break-all;" ng-if="!task.editMode" ng-model="task.status">{{task.status}}</p>
+
+                        <label>project: </label>
+                        <input ng-if="task.editMode" ng-model="task.project" type="text" value="{{task.project}}"></input>
+                        <p style="max-width: 300px;overflow:hidden;word-break: break-all;" ng-if="!task.editMode" ng-model="task.project">{{task.project.name}}</p>
+
+                        <label>progress: </label>
+                        <input ng-if="task.editMode" ng-model="task.progress" type="text" value="{{task.progress}}"></input>
+                        <p style="max-width: 300px;overflow:hidden;word-break: break-all;" ng-if="!task.editMode" ng-model="task.progress">{{task.progress}}</p>
+
+
+                    </p>
+                    <md-button ng-if="task.editMode" ng-click="taskCtrl.updatetask(task)" class="md-primary md-raised  md-cornered">Save</md-button>
+                    <md-button ng-click="taskCtrl.toggleEdit(task)" class="md-raised  md-cornered">Edit</md-button>
+                    <md-button ng-click="taskCtrl.deletetask(task)" class="md-warn md-raised  md-cornered">Delete</md-button>
+
+                    <!--name: ctrl.newTask.name,
+                    description: ctrl.newTask.description,
+                    status: ctrl.newTask.status,
+                    assignee: ctrl.selectedUser,
+                    type: {
+                        id: 1,
+                        name: "asd",
+                        priority: "NORMAL"
+                    },
+                    deadline: ctrl.newTask.deadline,
+                    project: ctrl.selectedProject,
+                    creationDate: ctrl.newTask.creationDate,
+                    modificationDate: ctrl.newTask.modificationDate,
+                    progress: ctrl.newTask.progress-->
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
+
+</div>

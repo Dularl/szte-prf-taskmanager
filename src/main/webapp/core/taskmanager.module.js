@@ -1,7 +1,7 @@
 angular
     .module(
         "taskManager", ["ngMaterial", "ngAnimate", "ngMessages", "ui.router",
-            "loginModule", "userModule", "menuModule", "resourceModule","projectModule"
+            "loginModule", "userModule", "menuModule", "resourceModule", "projectModule","taskModule","taskTypeModule"
         ])
     .config(
         function($mdThemingProvider, $stateProvider, $urlRouterProvider) {
@@ -19,7 +19,7 @@ angular
                 templateUrl: "./user/user.view.html"
             });
 
-            $stateProvider.state('home', {
+            $stateProvider.state('projects', {
                 url: "/projects",
                 templateUrl: "./projects/projects.view.html"
             });
@@ -35,10 +35,20 @@ angular
             });
 
 
-            $stateProvider.state('projects', {
-                url: "/projects",
-                templateUrl: "./projects/projects"
+            $stateProvider.state('tasks', {
+                url: "/tasks",
+                templateUrl: "./task/task.view.html"
             });
+
+            $stateProvider.state('taskType', {
+                url: "/taskTypes",
+                templateUrl: "./taskType/taskType.view.html"
+            });
+
+          /*  $stateProvider.state('tasks', {
+                url: "/tasks",
+                templateUrl: "./task/task.view.html"
+            });*/
 
             $urlRouterProvider.otherwise("/");
         });

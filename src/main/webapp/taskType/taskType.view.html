@@ -1,0 +1,40 @@
+<div ng-controller="taskTypeCtrl as taskTypeCtrl" class="content" layout="row">
+    <div layout="column" class="add-taskType-form user-list">
+        <h3>Add taskType form</h3>
+        <md-input-container>
+            <label>Name</label>
+            <input ng-model="taskTypeCtrl.newtaskType.name" class="taskType-name" type="text"></input>
+        </md-input-container>
+        <md-select class="role-selector" ng-model="taskTypeCtrl.selectedPriority.name" placeholder="Select a role">
+            <md-option ng-value="prio.name" ng-repeat="prio in taskTypeCtrl.priorities">{{ prio.name }}</md-option>
+        </md-select>
+        <div layout="row">
+            <md-button ng-click="taskTypeCtrl.addtaskType()" class="md-primary md-raised">Add</md-button>
+        </div>
+    </div>
+
+    <div class="user-list">
+        <h3>taskType list</h3>
+        <md-list>
+            <md-list-item class="md-2-line" ng-repeat="taskType in taskTypeCtrl.taskTypes">
+                <div class="md-list-item-text">
+                    <h3>	<b><label ng-if="!taskType.editMode">{{taskType.name}} </label>{{taskType.id}}<b></h3>
+                    <p layout="column">
+                        {{taskType.priority}}
+                        <input ng-if="taskType.editMode" ng-model="taskType.name" type="text" value="{{taskType.name}}"></input>
+
+                        <md-select ng-if="taskType.editMode" class="role-selector" ng-model="taskType.priority" placeholder="Select a priority">
+                            <md-option ng-value="prio.name" ng-repeat="prio in taskTypeCtrl.priorities">{{ prio.name }}</md-option>
+                        </md-select>
+
+
+                    </p>
+                    <md-button ng-if="taskType.editMode" ng-click="taskTypeCtrl.updatetaskType(taskType)" class="md-primary md-raised  md-cornered">Save</md-button>
+                    <md-button ng-click="taskTypeCtrl.toggleEdit(taskType)" class="md-raised  md-cornered">Edit</md-button>
+                    <md-button ng-click="taskTypeCtrl.deletetaskType(taskType)" class="md-warn md-raised  md-cornered">Delete</md-button>
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
+
+</div>

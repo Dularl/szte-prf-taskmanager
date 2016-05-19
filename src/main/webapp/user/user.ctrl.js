@@ -79,9 +79,10 @@
         }
 
         ctrl.toggleEdit = function(user) {
-          user.editMode = !user.editMode;
-          console.log(ctrl.editMode);
+            user.editMode = !user.editMode;
+            console.log(ctrl.editMode);
         }
+
         return ctrl;
     }
 

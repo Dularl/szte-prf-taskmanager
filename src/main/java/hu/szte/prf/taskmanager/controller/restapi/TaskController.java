@@ -38,4 +38,10 @@ public class TaskController {
 	public void update(@RequestBody final Task task) {
 		taskService.save(task);
 	}
+
+	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable final Long id) {
+		taskService.delete(id);
+	}
+
 }

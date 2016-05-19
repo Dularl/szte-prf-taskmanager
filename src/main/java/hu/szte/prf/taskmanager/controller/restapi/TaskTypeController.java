@@ -38,4 +38,10 @@ public class TaskTypeController {
 	public void update(@RequestBody final TaskType taskType) {
 		taskTypeService.save(taskType);
 	}
+
+	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable final Long id) {
+		taskTypeService.delete(id);
+	}
+
 }

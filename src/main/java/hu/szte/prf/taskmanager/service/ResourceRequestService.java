@@ -14,4 +14,6 @@ public interface ResourceRequestService {
 
 	public void update(final ResourceRequest resourceRequest);
 
+	public void delete(final Long id);
+
 }

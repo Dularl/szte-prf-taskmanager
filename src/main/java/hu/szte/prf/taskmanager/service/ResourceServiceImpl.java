@@ -36,4 +36,10 @@ public class ResourceServiceImpl implements ResourceService {
 		resourceDao.update(resource);
 	}
 
+	@Override
+	public void delete(final Long id) {
+		final Resource resource = resourceDao.read(id);
+		resourceDao.delete(resource);
+	}
+
 }

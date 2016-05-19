@@ -38,4 +38,10 @@ public class ProjectController {
 	public void update(@RequestBody final Project project) {
 		projectService.save(project);
 	}
+
+	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable final Long id) {
+		projectService.delete(id);
+	}
+
 }

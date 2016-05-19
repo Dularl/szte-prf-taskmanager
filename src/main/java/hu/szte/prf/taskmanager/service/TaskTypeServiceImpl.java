@@ -36,4 +36,10 @@ public class TaskTypeServiceImpl implements TaskTypeService {
 		taskTypeDao.update(taskType);
 	}
 
+	@Override
+	public void delete(final Long id) {
+		final TaskType taskType = taskTypeDao.read(id);
+		taskTypeDao.delete(taskType);
+	}
+
 }

@@ -38,4 +38,10 @@ public class ResourceController {
 	public void update(@RequestBody final Resource resource) {
 		resourceService.save(resource);
 	}
+
+	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable final Long id) {
+		resourceService.delete(id);
+	}
+
 }

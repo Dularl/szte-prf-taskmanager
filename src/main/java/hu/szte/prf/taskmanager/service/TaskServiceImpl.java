@@ -36,4 +36,10 @@ public class TaskServiceImpl implements TaskService {
 		taskDao.update(task);
 	}
 
+	@Override
+	public void delete(final Long id) {
+		final Task task = taskDao.read(id);
+		taskDao.delete(task);
+	}
+
 }

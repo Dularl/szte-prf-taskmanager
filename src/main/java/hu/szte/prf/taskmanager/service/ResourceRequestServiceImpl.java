@@ -36,4 +36,10 @@ public class ResourceRequestServiceImpl implements ResourceRequestService {
 		resourceRequestDao.update(resourceRequest);
 	}
 
+	@Override
+	public void delete(final Long id) {
+		final ResourceRequest resourceRequest = resourceRequestDao.read(id);
+		resourceRequestDao.delete(resourceRequest);
+	}
+
 }

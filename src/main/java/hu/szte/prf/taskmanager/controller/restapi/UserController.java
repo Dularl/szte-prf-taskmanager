@@ -25,7 +25,7 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.GET)
 	public List<User> list() {
 		log.info("User list");
-		final List<User> users = userService.list(); 
+		final List<User> users = userService.list();
 		return users;
 	}
 
@@ -33,7 +33,7 @@ public class UserController {
 	public User get(@PathVariable final Long id) {
 		return userService.find(id);
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
 	public void save(@RequestBody final User user) {
 		userService.save(user);
@@ -41,7 +41,12 @@ public class UserController {
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
 	public void update(@RequestBody final User user) {
-		userService.save(user);
+		userService.update(user);
+	}
+
+	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable final Long id) {
+		userService.delete(id);
 	}
 
 }

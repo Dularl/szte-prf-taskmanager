@@ -36,4 +36,10 @@ public class ProjectServiceImpl implements ProjectService {
 		projectDao.update(project);
 	}
 
+	@Override
+	public void delete(final Long id) {
+		final Project project = projectDao.read(id);
+		projectDao.delete(project);
+	}
+
 }

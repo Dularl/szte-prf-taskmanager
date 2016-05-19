@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 
 	@Override
-	public User find(Long id) {
+	public User find(final Long id) {
 		return userDao.read(id);
 	}
 
@@ -31,13 +31,19 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void save(User user) {
+	public void save(final User user) {
 		userDao.create(user);
 	}
 
 	@Override
-	public void update(User user) {
+	public void update(final User user) {
 		userDao.update(user);
+	}
+
+	@Override
+	public void delete(final Long id) {
+		final User user = userDao.read(id);
+		userDao.delete(user);
 	}
 
 }

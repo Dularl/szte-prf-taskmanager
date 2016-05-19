@@ -40,7 +40,8 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-	public void update(@RequestBody final User user) {
+	public void update(@PathVariable final Long id, @RequestBody final User user) {
+		user.setId(id);
 		userService.update(user);
 	}
 

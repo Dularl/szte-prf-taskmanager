@@ -35,7 +35,8 @@ public class TaskTypeController {
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-	public void update(@RequestBody final TaskType taskType) {
+	public void update(@PathVariable final Long id, @RequestBody final TaskType taskType) {
+		taskType.setId(id);
 		taskTypeService.update(taskType);
 	}
 

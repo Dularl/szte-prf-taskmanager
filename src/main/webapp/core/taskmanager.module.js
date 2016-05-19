@@ -1,7 +1,7 @@
 angular
     .module(
         "taskManager", ["ngMaterial", "ngAnimate", "ngMessages", "ui.router",
-            "loginModule", "userModule", "menuModule", "resourceModule"
+            "loginModule", "userModule", "menuModule", "resourceModule","projectModule"
         ])
     .config(
         function($mdThemingProvider, $stateProvider, $urlRouterProvider) {

@@ -24,6 +24,9 @@
         <md-select class="role-selector" ng-model="taskCtrl.selectedTaskType" placeholder="Select a TaskType">
             <md-option ng-value="TaskType" ng-repeat="TaskType in taskCtrl.TaskTypes">{{ TaskType.name }}</md-option>
         </md-select>
+        <md-select class="role-selector" ng-model="taskCtrl.selectedStatus" placeholder="Select a status">
+            <md-option ng-value="stat" ng-repeat="stat in taskCtrl.statuses">{{ stat.name }}</md-option>
+        </md-select>
 
         <div layout="row">
             <md-button ng-click="taskCtrl.addtask()" class="md-primary md-raised">Add</md-button>
@@ -40,19 +43,25 @@
 
                         <input ng-if="task.editMode" ng-model="task.name" type="text" value="{{task.name}}"></input>
 
-                        <input class="textarea" ng-if="task.editMode" ng-model="task.description" type="text" value="{{task.description}}"></input>
+
                         <p style="max-width: 300px;overflow:hidden;word-break: break-all;" ng-if="!task.editMode" ng-model="task.description">{{task.description}}</p>
 
                         <label>Assignee: </label>
-                        <input ng-if="task.editMode" ng-model="task.assignee" type="text" value="{{task.assignee}}"></input>
+                        <md-select ng-if="task.editMode" class="role-selector" ng-model="task.assignee" placeholder="Select a user">
+                            <md-option ng-value="user" ng-repeat="user in taskCtrl.users">{{ user.name }}</md-option>
+                        </md-select>
                         <p style="max-width: 300px;overflow:hidden;word-break: break-all;" ng-if="!task.editMode" ng-model="task.assignee">{{task.assignee.name}}</p>
 
                         <label>Status: </label>
-                        <input ng-if="task.editMode" ng-model="task.status" type="text" value="{{task.status}}"></input>
+                        <md-select ng-if="task.editMode" class="role-selector" ng-model="task.status" placeholder="Select a status">
+                            <md-option ng-value="status.name" ng-repeat="status in taskCtrl.statuses">{{ status.name }}</md-option>
+                        </md-select>
                         <p style="max-width: 300px;overflow:hidden;word-break: break-all;" ng-if="!task.editMode" ng-model="task.status">{{task.status}}</p>
 
-                        <label>project: </label>
-                        <input ng-if="task.editMode" ng-model="task.project" type="text" value="{{task.project}}"></input>
+                        <label>Project: </label>
+                        <md-select ng-if="task.editMode" class="role-selector" ng-model="task.project" placeholder="Select a project">
+                            <md-option ng-value="project" ng-repeat="project in taskCtrl.projects">{{ project.name }}</md-option>
+                        </md-select>
                         <p style="max-width: 300px;overflow:hidden;word-break: break-all;" ng-if="!task.editMode" ng-model="task.project">{{task.project.name}}</p>
 
                         <label>progress: </label>

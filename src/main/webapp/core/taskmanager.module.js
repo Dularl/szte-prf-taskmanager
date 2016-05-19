@@ -40,10 +40,12 @@ angular
                 templateUrl: "./task/task.view.html"
             });
 
-            $stateProvider.state('taskType', {
+            $stateProvider.state('taskTypes', {
                 url: "/taskTypes",
                 templateUrl: "./taskType/taskType.view.html"
             });
+
+
 
           /*  $stateProvider.state('tasks', {
                 url: "/tasks",

@@ -1,5 +1,42 @@
-<div ng-controller="resourceCtrl as resourceCtrl" class="content">
-	<div class ng-repeat="resource in resourceCtrl.resources">
-		<h3>{{resource.name}}</h3>
-	</div>
+<div ng-controller="resourceCtrl as resourceCtrl" class="content" layout="row">
+    <div layout="column" class="add-resource-form user-list">
+        <h3>Add resource form</h3>
+        <md-input-container>
+            <label>Name</label>
+            <input ng-model="resourceCtrl.newresource.name" class="resource-name" type="text"></input>
+        </md-input-container>
+        <md-input-container>
+            <label>Description</label>
+        </md-input-container>
+        <md-input-container>
+        </md-input-container>
+        <textarea rows="4" ng-model="resourceCtrl.newresource.description" class="resource-name textarea" type="text"></textarea>
+        <div layout="row">
+            <md-button ng-click="resourceCtrl.addresource()" class="md-primary md-raised">Add</md-button>
+        </div>
+    </div>
+
+    <div class="user-list">
+        <h3>resource list</h3>
+        <md-list>
+            <md-list-item class="md-2-line" ng-repeat="resource in resourceCtrl.resources">
+                <div class="md-list-item-text">
+                    <h3>	<b><label ng-if="!resource.editMode">{{resource.name}} </label>{{resource.id}}<b></h3>
+                    <p layout="column">
+
+                        <input ng-if="resource.editMode" ng-model="resource.name" type="text" value="{{resource.name}}"></input>
+
+                        <textarea class="textarea" ng-if="resource.editMode" ng-model="resource.description" type="text" value="{{resource.description}}"></textarea>
+                        <p style="max-width: 300px;overflow:hidden;word-break: break-all;"ng-if="!resource.editMode" ng-model="resource.description">{{resource.description}}</p>
+
+
+                    </p>
+                    <md-button ng-if="resource.editMode" ng-click="resourceCtrl.updateresource(resource)" class="md-primary md-raised  md-cornered">Save</md-button>
+                    <md-button ng-click="resourceCtrl.toggleEdit(resource)" class="md-raised  md-cornered">Edit</md-button>
+                    <md-button ng-click="resourceCtrl.deleteresource(resource)" class="md-warn md-raised  md-cornered">Delete</md-button>
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
+
 </div>

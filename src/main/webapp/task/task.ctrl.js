@@ -16,8 +16,10 @@
             description: ""
         };
 
-        ctrl.selectedTaskType ={
-        }
+        ctrl.selectedTaskType = {}
+
+        ctrl.selectedStatus = {}
+
 
         ctrl.gettaskTypeList = function() {
             // Simple GET request example:
@@ -35,6 +37,14 @@
                 console.log("error", response);
             });
         }
+
+        ctrl.statuses = [{
+            "name": "ASSIGNED"
+        }, {
+            "name": "IN_PROGRESS"
+        }, {
+            "name": "DONE"
+        }];
         ctrl.gettaskTypeList();
 
         ctrl.getUserList = function() {
@@ -75,7 +85,7 @@
         ctrl.newTask = {
             name: "",
             description: "",
-            status: "ASSIGNED",
+            status: "",
             assignee: "",
             type: "",
             deadline: "",
@@ -92,8 +102,8 @@
                 method: 'GET',
                 url: '/rest/tasks'
             }).then(function successCallback(response) {
-                console.log("success",response);
-                ctrl.tasks=response.data;
+                console.log("success", response);
+                ctrl.tasks = response.data;
 
             }, function errorCallback(response) {
                 // called asynchronously if an error occurs
@@ -105,7 +115,18 @@
         ctrl.gettaskList();
         ctrl.updatetask = function(task) {
             console.log("PUT", task);
-            var data = {}
+            var data = {
+                name: task.name,
+                description: task.description,
+                status: task.status,
+                assignee: task.assignee,
+                type: task.selectedTaskType,
+                deadline: task.deadline,
+                project: task.project,
+                creationDate: task.creationDate,
+                modificationDate: task.modificationDate,
+                progress: task.progress
+            }
             $http.put("/rest/tasks/" + task.id, data).then(function(res) {
                 ctrl.gettaskList();
             });
@@ -125,7 +146,7 @@
                 data: {
                     name: ctrl.newTask.name,
                     description: ctrl.newTask.description,
-                    status: ctrl.newTask.status,
+                    status: ctrl.selectedStatus.name,
                     assignee: ctrl.selectedUser,
                     type: ctrl.selectedTaskType,
                     deadline: ctrl.newTask.deadline,

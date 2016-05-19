@@ -1,1 +1,20 @@
 membership-user editor
+<div ng-controller="userCtrl as userCtrl" class="content" layout="column">
+    <md-select class="role-selector" ng-model="userCtrl.selectedProject" placeholder="Select a project">
+        <md-option ng-value="project" ng-repeat="project in userCtrl.projects">{{ project.name }}</md-option>
+    </md-select>
+    <md-select class="role-selector" ng-model="userCtrl.selectedUser" placeholder="Select a user">
+        <md-option ng-value="user" ng-repeat="user in userCtrl.users">{{ user.name }}</md-option>
+    </md-select>
+    <div layout="row">
+        <md-button ng-click="userCtrl.assignUser()">Add to project</md-button>
+        <md-button ng-click="userCtrl.unassignUser()">Delete</md-button>
+        <md-button ng-click="userCtrl.getUserPerProject()">Get members</md-button>
+    </div>
+    <div>
+        members
+        <div ng-repeat="member in userCtrl.projectMembers">
+            {{member.name}}
+        </div>
+    </div>
+</div>

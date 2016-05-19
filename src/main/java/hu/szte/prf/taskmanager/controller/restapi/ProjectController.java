@@ -35,7 +35,8 @@ public class ProjectController {
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-	public void update(@RequestBody final Project project) {
+	public void update(@PathVariable final Long id, @RequestBody final Project project) {
+		project.setId(id);
 		projectService.update(project);
 	}
 

@@ -35,7 +35,8 @@ public class TaskController {
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-	public void update(@RequestBody final Task task) {
+	public void update(@PathVariable final Long id, @RequestBody final Task task) {
+		task.setId(id);
 		taskService.update(task);
 	}
 

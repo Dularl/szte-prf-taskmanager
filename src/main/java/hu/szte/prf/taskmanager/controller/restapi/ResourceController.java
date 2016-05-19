@@ -35,7 +35,8 @@ public class ResourceController {
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-	public void update(@RequestBody final Resource resource) {
+	public void update(@PathVariable final Long id, @RequestBody final Resource resource) {
+		resource.setId(id);
 		resourceService.update(resource);
 	}
 
